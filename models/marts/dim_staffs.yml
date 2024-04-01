@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: dim_staffs
+    description: Tabela de dimensão para funcionários
+    columns:
+      - name: sk_staff
+        description: Chave substituta para o funcionário
+        tests:
+          - unique
+          - not_null
+      - name: staff_id
+        description: ID do funcionário
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+        description: Primeiro nome do funcionário
+        tests:
+          - not_null
+      - name: last_name
+        description: Sobrenome do funcionário
+        tests:
+          - not_null
+      - name: full_name
+        description: Nome completo do funcionário
+        tests:
+          - not_null
+      - name: active
+        description: Status ativo do funcionário
+        tests:
+          - accepted_values:
+              values: [0, 1]  # 0 para inativo, 1 para ativo
+              quote: false
+      - name: store_id
+        description: ID da loja do funcionário
+        tests:
+          - not_null
+      - name: manager_id
+        description: ID do gerente do funcionário

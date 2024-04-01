@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: Tabela de dimensão para clientes
+    columns:
+      - name: sk_customer
+        description: Chave substituta para o cliente
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: ID do cliente
+        tests:
+          - unique
+          - not_null
+      - name: full_name
+        description: Nome completo do cliente
+        tests:
+          - not_null
+      - name: phone
+        description: Número de telefone do cliente
+      - name: email
+        description: Email do cliente
+      - name: customer_street
+        description: Rua do cliente
+        tests:
+          - not_null
+      - name: customer_city
+        description: Cidade do cliente
+        tests:
+          - not_null
+      - name: customers_state
+        description: Estado do cliente
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['CA', 'NY', 'TX']
+      - name: customer_zip_code
+        description: Código postal do cliente
+        tests:
+          - not_null

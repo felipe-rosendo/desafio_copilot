@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: agg_store_stock
+    description: >
+      Esta tabela contém o estoque agregado por loja e produto.
+    columns:
+      - name: sk_stock_store
+        description: Chave surrogate para a combinação de loja, produto e estoque.
+        tests:
+          - unique
+          - not_null
+      - name: fk_store
+        description: ID da loja.
+        tests:
+          - not_null
+      - name: product_id
+        description: ID do produto.
+        tests:
+          - not_null
+      - name: total_stock
+        description: Quantidade total de estoque para a combinação de loja e produto.
+        tests:
+          - not_null

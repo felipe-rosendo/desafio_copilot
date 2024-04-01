@@ -1,0 +1,71 @@
+version: 2
+
+models:
+  - name: fct_order
+    description: Tabela de fatos para pedidos
+    columns:
+      - name: sk_order
+        description: Chave substituta para o pedido
+        tests:
+          - unique
+          - not_null
+      - name: fk_customer
+        description: Chave estrangeira para o cliente
+        tests:
+          - relationships:
+              to: ref('dim_customers')
+              field: sk_customer
+      - name: fk_store
+        description: Chave estrangeira para a loja
+        tests:
+          - relationships:
+              to: ref('dim_stores')
+              field: sk_store
+      - name: fk_staff
+        description: Chave estrangeira para o funcionário
+        tests:
+          - relationships:
+              to: ref('dim_staffs')
+              field: sk_staff
+      - name: fk_product
+        description: Chave estrangeira para o produto
+        tests:
+          - relationships:
+              to: ref('dim_products')
+              field: sk_product
+      - name: order_id
+        description: ID do pedido
+        tests:
+          - not_null
+      - name: order_status
+        description: Status do pedido
+        tests:
+          - not_null
+      - name: order_date
+        description: Data do pedido
+        tests:
+          - not_null
+      - name: required_date
+        description: Data de entrega requerida
+        tests:
+          - not_null
+      - name: item_id
+        description: ID do item do pedido
+        tests:
+          - not_null
+      - name: quantity
+        description: Quantidade do produto no pedido
+        tests:
+          - not_null
+      - name: list_price
+        description: Preço de lista do produto
+        tests:
+          - not_null
+      - name: discount
+        description: Desconto no produto
+        tests:
+          - not_null
+      - name: total_price
+        description: Preço total do produto
+        tests:
+          - not_null

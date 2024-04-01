@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: agg_sales_store_staff
+    description: >
+      Esta tabela contém as vendas agregadas por loja e vendedor.
+    columns:
+      - name: sk_store_staff
+        description: Chave surrogate para a combinação de loja e vendedor.
+        tests:
+          - unique
+          - not_null
+      - name: fk_store
+        description: Chave estrangeira para a loja.
+        tests:
+          - not_null
+      - name: fk_staff
+        description: Chave estrangeira para o vendedor.
+        tests:
+          - not_null
+      - name: total_sales
+        description: Total de vendas para a combinação de loja e vendedor.
+        tests:
+          - not_null
